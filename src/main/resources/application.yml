@@ -1,1 +1,6 @@
-
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: hanseong
+    password: Hanseong1234!
+    url: jdbc:mysql://35.77.195.234:3306
