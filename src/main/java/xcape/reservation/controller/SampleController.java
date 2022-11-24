@@ -8,7 +8,7 @@ public class SampleController {
 
     @GetMapping("/sample")
     public String sample() {
-        return "OKOK";
+        return "OKOK123123";
     }
 
 }
