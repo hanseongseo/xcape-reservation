@@ -56,6 +56,6 @@ jobs:
         run: aws s3 cp --region $REGION ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$PROJECT_NAME/$GITHUB_SHA.zip
         working-directory: ${{ env.working-directory }}
 
-#      - name: Code Deploy
-#        run: aws deploy create-deployment --application-name xcape-reservation --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name xcape-code-deploy --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
-#        working-directory: ${{ env.working-directory }}
+      - name: Code Deploy
+        run: aws deploy create-deployment --application-name xcape-deploy --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name xcape-code-deploy --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
+        working-directory: ${{ env.working-directory }}
