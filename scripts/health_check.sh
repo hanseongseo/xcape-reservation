@@ -22,7 +22,8 @@ do
 	echo "> #${RETRY_COUNT} trying..."
 	RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}"  http://127.0.0.1:${TARGET_PORT}/sample)
 
-	if [ "${RESPONSE_CODE}" -eq 200 ]; then
+	# shellcheck disable=SC2170
+	if [ "${RESPONSE_CODE}" -eq 2xx ]  || [ "${RESPONSE_CODE}" -eq 3xx ]; then
 		echo "> New WAS successfully running"
 		exit 0
 	elif [ ${RETRY_COUNT} -eq 10 ]; then
